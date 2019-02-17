@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APICore", "APICore\APICore.csproj", "{01267C59-5896-4164-A02B-130AE465B27E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElasticSampleCore", "ElasticSampleCore\ElasticSampleCore.csproj", "{EEDED03A-F281-4399-AEC6-B0B514C99041}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OdataCoreApi", "OdataCoreApi\OdataCoreApi.csproj", "{8E175079-EC22-4B3C-A91C-04C0B7360867}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{01267C59-5896-4164-A02B-130AE465B27E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{01267C59-5896-4164-A02B-130AE465B27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{01267C59-5896-4164-A02B-130AE465B27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{01267C59-5896-4164-A02B-130AE465B27E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEDED03A-F281-4399-AEC6-B0B514C99041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEDED03A-F281-4399-AEC6-B0B514C99041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEDED03A-F281-4399-AEC6-B0B514C99041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEDED03A-F281-4399-AEC6-B0B514C99041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E175079-EC22-4B3C-A91C-04C0B7360867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E175079-EC22-4B3C-A91C-04C0B7360867}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E175079-EC22-4B3C-A91C-04C0B7360867}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E175079-EC22-4B3C-A91C-04C0B7360867}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
