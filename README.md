@@ -1,2 +1,2 @@
 # APICore
-api core odata
+
