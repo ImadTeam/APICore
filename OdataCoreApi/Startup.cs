@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -36,8 +37,6 @@ namespace OdataCoreApi
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
-			var odataBuilder = new ODataConventionModelBuilder(app.ApplicationServices);
-
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
@@ -48,21 +47,19 @@ namespace OdataCoreApi
 			}
 
 			app.UseHttpsRedirection();
+
 			app.UseMvc(routes =>
 			{
-				ConfigureODataRouting(routes, odataBuilder);
+				ConfigureODataRouting(routes, new ODataConventionModelBuilder(app.ApplicationServices));
 			});
 		}
 
-		private static void ConfigureODataRouting(Microsoft.AspNetCore.Routing.IRouteBuilder routes, ODataConventionModelBuilder odataBuilder)
+		private static void ConfigureODataRouting(IRouteBuilder routes, ODataConventionModelBuilder odataBuilder)
 		{
 			// Enable full OData queries, you might want to consider which would be actually enabled in production scenaries
 			routes.Count().Filter().OrderBy().Expand().Select().MaxTop(null);
 
-			// Create the default collection of built-in conventions.
-			var conventions = ODataRoutingConventions.CreateDefault();
-
-			routes.MapODataServiceRoute("ODataRoute", "odata", odataBuilder.GetEdmModel(), new DefaultODataPathHandler(), conventions);
+			routes.MapODataServiceRoute("ODataRoute", "odata", odataBuilder.GetEdmModel(), new DefaultODataPathHandler(), ODataRoutingConventions.CreateDefault());
 
 			// Work-around for #1175
 			routes.EnableDependencyInjection();
